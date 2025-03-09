@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_bridge",
+  "%Name":"obj_smiley",
   "eventList":[],
   "managed":true,
-  "name":"obj_bridge",
+  "name":"obj_smiley",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -26,10 +26,10 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
-    "name":"spr_bridge",
-    "path":"sprites/spr_bridge/spr_bridge.yy",
+    "name":"spr_smiley",
+    "path":"sprites/spr_smiley/spr_smiley.yy",
   },
   "spriteMaskId":null,
   "visible":true,
