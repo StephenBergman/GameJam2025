@@ -1,9 +1,16 @@
 //Declare speed variable
-
 speed = 0;
 var accel = 2; //How fast player speeds up
 var max_speed = 200// Max speed
 friction = 0.02 // How fast player slows down
+
+//Gravity and jump variables
+gravity = 0.5; // Gravity strength
+var jump_strength = -10; //Jump power (negative is up)
+var max_fall_speed = 10; //Fall speed (positive is down)
+
+//Applying gravity
+
 
 //Move Right
 if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
