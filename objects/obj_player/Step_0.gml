@@ -5,7 +5,7 @@ var max_speed = 200// Max speed
 friction = 0.02 // How fast player slows down
 
 //Gravity and jump variables
-gravity = 0.5; // Gravity strength
+gravity = 0; // Gravity strength
 var jump_strength = -10; //Jump power (negative is up)
 var max_fall_speed = 10; //Fall speed (positive is down)
 
