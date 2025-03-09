@@ -1,8 +1,21 @@
 // Declare speed variable
-
 var accel = 2; // How fast player speeds up
 var max_speed = 8; // Max movement speed
 
+//Player death
+function player_die() {
+// sprite_index = spr_player_death; //Death animation
+
+//Wait 1 second before respawning
+alarm[0] = room_speed // room speed = 1 second
+
+//Add death sound
+}
+
+//Respawn in nightmare after 1st death
+if (alarm[0] == 0) {
+	room_goto(rm_unhappy)
+}
 
 // Gravity and jump variables
 gravity = 8; // Gravity
@@ -72,5 +85,8 @@ else { // Standing still
     sprite_index = spr_player; 
 }
 
+if (place_meeting(x , y, obj_killbox)) { //Die if touching killbox
+	player_die(); //Death function
+}
 // Apply movement
 x += hspeed;
