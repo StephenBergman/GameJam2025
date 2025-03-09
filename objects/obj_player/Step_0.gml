@@ -1,65 +1,76 @@
-//Declare speed variable
-speed = 0;
-var accel = 2; //How fast player speeds up
-var max_speed = 200// Max speed
-friction = 0.02 // How fast player slows down
+// Declare speed variable
 
-//Gravity and jump variables
-gravity = 1; // Gravity strength
-var jump_strength = -10; //Jump power (negative is up)
-var max_fall_speed = 10; //Fall speed (positive is down)
+var accel = 2; // How fast player speeds up
+var max_speed = 8; // Max movement speed
 
-//Applying gravity
-if (!place_meeting(x, y + 1, obj_ground)) { //If not touching ground
-	vspeed += gravity; //Apply gravity
-	if (vspeed > max_fall_speed) vspeed = max_fall_speed; // Cap falling speed
-} else {
-	vspeed = 0; // stop falling when on ground
+
+// Gravity and jump variables
+gravity = 8; // Gravity
+var jump_strength = -20; // jump power
+var max_fall_speed = 20; // Capped fall speed
+
+// Applying gravity
+if (!place_meeting(x, y + 2, obj_ground)) { // If not touching ground
+    vspeed += gravity * 0.2; // Apply gradual gravity
+    if (vspeed > max_fall_speed) vspeed = max_fall_speed; // Cap falling speed
+} 
+else {
+    vspeed = 0; // Stop falling when on ground
 }
-//Jumping
-	if ((keyboard_check_pressed(vk_up) || keyboard_check_pressed(vk_space)) && place_meeting(x, y + 1, obj_ground)) {
-		vspeed = jump_strength; //Jump when on ground
-	}
 
-	//Apply vertical movement
-	y += vspeed;
-	
-	//Keep existing movement
-	var accel = 0.5;
-	var max_speed = 5;
-	friction = 0.2
-	speed = 0
+// Jumping 
+if ((keyboard_check_pressed(vk_up) || keyboard_check_pressed(vk_space)) && place_meeting(x, y + 2, obj_ground)) {
+    vspeed = jump_strength; // Jump when on ground
+}
 
-//Move Right
+// Apply vertical movement 
+if (vspeed > 0) { // Falling down
+    if (place_meeting(x, y + vspeed, obj_ground)) {
+        move_contact_solid(270, abs(vspeed)); // Move down until touching the ground
+        vspeed = 0; // Stop falling
+    } else {
+        y += vspeed; // Move normally if no collision
+    }
+} 
+else if (vspeed < 0) { // Jumping
+    if (place_meeting(x, y + vspeed, obj_ground)) {
+        move_contact_solid(90, abs(vspeed)); // Stop at ceiling
+        vspeed = 0;
+    } else {
+        y += vspeed;
+    }
+}
+
+// Player movement (Left/Right)
 if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
-	speed += accel; //Increase speed
-	if (speed > max_speed) speed = max_speed; //Cap speed
-	sprite_index = spr_player_run_right; //Running sprite
-	image_xscale = 1; //Face right
+    hspeed += accel;  // Accelerate to the right
+    if (hspeed > max_speed) hspeed = max_speed; // Cap speed
+    image_xscale = 1; // Face right
+} 
+else if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
+    hspeed -= accel;  // Accelerate to the left 
+    if (hspeed < -max_speed) hspeed = -max_speed; // Cap leftward speed
+    image_xscale = -1; // Flip sprite
+} 
+
+
+
+if (!keyboard_check(vk_right) && !keyboard_check(vk_left) &&
+!keyboard_check(ord("D")) && !keyboard_check(ord("A"))) {
+	hspeed = 0;
 }
 
-//Move left
-else if 
- (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
-	speed -= accel; //Increase speed
-	if (speed < -max_speed) speed = -max_speed; //Cap negative speed
-	sprite_index = spr_player_run_right; //Set running sprite
-	image_xscale = -1; //Flip sprite to face left
- }
-	else {
-	if (speed > 0) {
-		speed -= friction;
-		if (speed < 0) speed = 0; //Prevent negative speed
-	} else if (speed < 0) {
-		speed += friction;
-		if (speed > 0) speed = 0;
-	}
-	
-	//Idle sprite if not moving
-	if (speed == 0) {
-		sprite_index = spr_player
-	}
+
+//Sprites
+if (vspeed < 0 && abs(hspeed) >= 0) { // Only apply jump sprite when stationary & airborne
+    sprite_index = spr_player_jump;
+} 
+else if (abs(speed) > 0) { // Running (no separate left sprite needed)
+    sprite_index = spr_player_run_right;
+} 
+else { // Standing still
+    sprite_index = spr_player; 
 }
 
-//Apply movement
-x += speed;
+// Apply movement
+x += hspeed;
