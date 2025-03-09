@@ -36,6 +36,7 @@
   "resources":[
     {"id":{"name":"obj_enemy_lg","path":"objects/obj_enemy_lg/obj_enemy_lg.yy",},},
     {"id":{"name":"obj_enemy_sm","path":"objects/obj_enemy_sm/obj_enemy_sm.yy",},},
+    {"id":{"name":"obj_ground","path":"objects/obj_ground/obj_ground.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"rm_base","path":"rooms/rm_base/rm_base.yy",},},
     {"id":{"name":"Script1","path":"scripts/Script1/Script1.yy",},},
