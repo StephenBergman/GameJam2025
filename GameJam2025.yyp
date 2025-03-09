@@ -36,10 +36,15 @@
   "resources":[
     {"id":{"name":"obj_enemy_lg","path":"objects/obj_enemy_lg/obj_enemy_lg.yy",},},
     {"id":{"name":"obj_enemy_sm","path":"objects/obj_enemy_sm/obj_enemy_sm.yy",},},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"rm_base","path":"rooms/rm_base/rm_base.yy",},},
     {"id":{"name":"Script1","path":"scripts/Script1/Script1.yy",},},
+    {"id":{"name":"spr_bg","path":"sprites/spr_bg/spr_bg.yy",},},
     {"id":{"name":"spr_enemy_lg","path":"sprites/spr_enemy_lg/spr_enemy_lg.yy",},},
     {"id":{"name":"spr_enemy_sm","path":"sprites/spr_enemy_sm/spr_enemy_sm.yy",},},
+    {"id":{"name":"spr_ground_left","path":"sprites/spr_ground_left/spr_ground_left.yy",},},
+    {"id":{"name":"spr_ground_mid","path":"sprites/spr_ground_mid/spr_ground_mid.yy",},},
+    {"id":{"name":"spr_ground_right","path":"sprites/spr_ground_right/spr_ground_right.yy",},},
+    {"id":{"name":"spr_ground","path":"sprites/spr_ground/spr_ground.yy",},},
     {"id":{"name":"spr_player_run_right","path":"sprites/spr_player_run_right/spr_player_run_right.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},},
@@ -47,7 +52,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_base","path":"rooms/rm_base/rm_base.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
