@@ -1,0 +1,1 @@
+draw_sprite_tiled(spr_bg, 0, view_xview[0] * 0.5, view_yview[0] * 0.5);
