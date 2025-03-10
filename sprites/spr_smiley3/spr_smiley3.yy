@@ -25,8 +25,13 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
+<<<<<<< HEAD
+    "name":"Sprites",
+    "path":"folders/Sprites.yy",
+=======
     "name":"Ground",
     "path":"folders/Sprites/Ground.yy",
+>>>>>>> temp-branch
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
