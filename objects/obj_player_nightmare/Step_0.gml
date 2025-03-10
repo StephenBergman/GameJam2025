@@ -1,9 +1,3 @@
-// Set the initial game state
-if (!variable_global_exists("game_state")) {
-    global.game_state = "alive"; // Default state
-    show_debug_message("global.game_state initialized to 'alive'.");
-}
-
 if (place_meeting(x , y, obj_killbox)) { //Die if touching killbox
 	show_debug_message("Player died successfully!") //Debug
 	player_die(); //Death function

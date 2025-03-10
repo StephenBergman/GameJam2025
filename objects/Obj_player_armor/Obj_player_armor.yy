@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_spawnpoint",
+  "%Name":"Obj_player_armor",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_spawnpoint",
+  "name":"Obj_player_armor",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -28,8 +28,11 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
-  "spriteId":null,
+  "solid":true,
+  "spriteId":{
+    "name":"spr_player_armor",
+    "path":"sprites/spr_player_armor/spr_player_armor.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

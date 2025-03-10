@@ -1,11 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_spawnpoint",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_armor_anim",
+  "eventList":[],
   "managed":true,
-  "name":"obj_spawnpoint",
+  "name":"obj_armor_anim",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -29,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_armor_anim",
+    "path":"sprites/spr_armor_anim/spr_armor_anim.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

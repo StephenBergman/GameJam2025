@@ -29,9 +29,9 @@ else {
 }
 
 // Jumping 
-if ((keyboard_check_pressed(vk_up) || keyboard_check_pressed(vk_space)) && place_meeting(x, y + 2, obj_ground)) {
-    vspeed = jump_strength; // Jump when on ground
-}
+//if ((keyboard_check_pressed(vk_up) || keyboard_check_pressed(vk_space)) && place_meeting(x, y + 2, obj_ground)) {
+//    vspeed = jump_strength; // Jump when on ground
+//}
 
 // Apply vertical movement 
 if (vspeed > 0) { // Falling down
@@ -42,14 +42,14 @@ if (vspeed > 0) { // Falling down
         y += vspeed; // Move normally if no collision
     }
 } 
-else if (vspeed < 0) { // Jumping
-    if (place_meeting(x, y + vspeed, obj_ground)) {
-        move_contact_solid(90, abs(vspeed)); // Stop at ceiling
-        vspeed = 0;
-    } else {
-        y += vspeed;
-    }
-}
+//else if (vspeed < 0) { // Jumping
+//    if (place_meeting(x, y + vspeed, obj_ground)) {
+//        move_contact_solid(90, abs(vspeed)); // Stop at ceiling
+//        vspeed = 0;
+//    } else {
+//        y += vspeed;
+//    }
+//}
 
 // Player movement (Left/Right)
 if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
