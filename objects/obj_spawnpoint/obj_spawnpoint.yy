@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_killbox",
+  "%Name":"obj_spawnpoint",
   "eventList":[],
   "managed":true,
-  "name":"obj_killbox",
+  "name":"obj_spawnpoint",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_water",
-    "path":"sprites/spr_water/spr_water.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }
