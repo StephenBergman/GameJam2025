@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bg_dark",
-    "path":"sprites/spr_bg_dark/spr_bg_dark.yy",
+    "name":"spr_dark_background",
+    "path":"sprites/spr_dark_background/spr_dark_background.yy",
   },
   "spriteMaskId":null,
   "visible":true,
