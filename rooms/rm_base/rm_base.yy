@@ -807,10 +807,10 @@
   "resourceType":"GMRoom",
   "resourceVersion":"2.0",
   "roomSettings":{
-    "Height":5000,
+    "Height":1000,
     "inheritRoomSettings":false,
     "persistent":false,
-    "Width":10000,
+    "Width":5000,
   },
   "sequenceId":null,
   "views":[
