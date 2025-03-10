@@ -34,6 +34,7 @@
   },
   "name":"GameJam2025",
   "resources":[
+    {"id":{"name":"obj_barrier","path":"objects/obj_barrier/obj_barrier.yy",},},
     {"id":{"name":"obj_bg_dark","path":"objects/obj_bg_dark/obj_bg_dark.yy",},},
     {"id":{"name":"obj_bg_happy","path":"objects/obj_bg_happy/obj_bg_happy.yy",},},
     {"id":{"name":"obj_bridge","path":"objects/obj_bridge/obj_bridge.yy",},},
@@ -94,6 +95,7 @@
     {"id":{"name":"spr_sign","path":"sprites/spr_sign/spr_sign.yy",},},
     {"id":{"name":"spr_smiley","path":"sprites/spr_smiley/spr_smiley.yy",},},
     {"id":{"name":"spr_smiley2","path":"sprites/spr_smiley2/spr_smiley2.yy",},},
+    {"id":{"name":"spr_smiley3","path":"sprites/spr_smiley3/spr_smiley3.yy",},},
     {"id":{"name":"spr_torch_ani","path":"sprites/spr_torch_ani/spr_torch_ani.yy",},},
     {"id":{"name":"spr_water_ani","path":"sprites/spr_water_ani/spr_water_ani.yy",},},
     {"id":{"name":"spr_water","path":"sprites/spr_water/spr_water.yy",},},
