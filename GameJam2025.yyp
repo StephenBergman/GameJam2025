@@ -23,10 +23,6 @@
     {"$GMFolder":"","%Name":"Shaders","folderPath":"folders/Shaders.yy","name":"Shaders","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sounds","folderPath":"folders/Sounds.yy","name":"Sounds","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Backgrounds","folderPath":"folders/Sprites/Backgrounds.yy","name":"Backgrounds","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Building","folderPath":"folders/Sprites/Building.yy","name":"Building","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Ground","folderPath":"folders/Sprites/Ground.yy","name":"Ground","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Players","folderPath":"folders/Sprites/Players.yy","name":"Players","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
@@ -38,12 +34,8 @@
   },
   "name":"GameJam2025",
   "resources":[
-master
-    {"id":{"name":"obj_barrier","path":"objects/obj_barrier/obj_barrier.yy",},},
-
     {"id":{"name":"fnt_death","path":"fonts/fnt_death/fnt_death.yy",},},
     {"id":{"name":"obj_armor_anim","path":"objects/obj_armor_anim/obj_armor_anim.yy",},},
- Master
     {"id":{"name":"obj_bg_dark","path":"objects/obj_bg_dark/obj_bg_dark.yy",},},
     {"id":{"name":"obj_bg_happy","path":"objects/obj_bg_happy/obj_bg_happy.yy",},},
     {"id":{"name":"obj_bridge","path":"objects/obj_bridge/obj_bridge.yy",},},
@@ -73,6 +65,7 @@ master
     {"id":{"name":"Player_Death","path":"scripts/Player_Death/Player_Death.yy",},},
     {"id":{"name":"spr_armor_anim","path":"sprites/spr_armor_anim/spr_armor_anim.yy",},},
     {"id":{"name":"spr_awning","path":"sprites/spr_awning/spr_awning.yy",},},
+    {"id":{"name":"spr_bg_dark","path":"sprites/spr_bg_dark/spr_bg_dark.yy",},},
     {"id":{"name":"spr_bg","path":"sprites/spr_bg/spr_bg.yy",},},
     {"id":{"name":"spr_bld_dark","path":"sprites/spr_bld_dark/spr_bld_dark.yy",},},
     {"id":{"name":"spr_bld_light","path":"sprites/spr_bld_light/spr_bld_light.yy",},},
@@ -84,13 +77,7 @@ master
     {"id":{"name":"spr_bridge","path":"sprites/spr_bridge/spr_bridge.yy",},},
     {"id":{"name":"spr_chimney","path":"sprites/spr_chimney/spr_chimney.yy",},},
     {"id":{"name":"spr_clock","path":"sprites/spr_clock/spr_clock.yy",},},
-master
-    {"id":{"name":"spr_dark_background","path":"sprites/spr_dark_background/spr_dark_background.yy",},},
-    {"id":{"name":"spr_dark_graveyard","path":"sprites/spr_dark_graveyard/spr_dark_graveyard.yy",},},
-    {"id":{"name":"spr_dark_mountains","path":"sprites/spr_dark_mountains/spr_dark_mountains.yy",},},
-
     {"id":{"name":"spr_death_screen","path":"sprites/spr_death_screen/spr_death_screen.yy",},},
- Master
     {"id":{"name":"spr_dirt","path":"sprites/spr_dirt/spr_dirt.yy",},},
     {"id":{"name":"spr_door","path":"sprites/spr_door/spr_door.yy",},},
     {"id":{"name":"spr_door1","path":"sprites/spr_door1/spr_door1.yy",},},
@@ -98,6 +85,7 @@ master
     {"id":{"name":"spr_enemy_lg","path":"sprites/spr_enemy_lg/spr_enemy_lg.yy",},},
     {"id":{"name":"spr_enemy_sm","path":"sprites/spr_enemy_sm/spr_enemy_sm.yy",},},
     {"id":{"name":"spr_fence","path":"sprites/spr_fence/spr_fence.yy",},},
+    {"id":{"name":"spr_graveyard","path":"sprites/spr_graveyard/spr_graveyard.yy",},},
     {"id":{"name":"spr_green","path":"sprites/spr_green/spr_green.yy",},},
     {"id":{"name":"spr_ground_left","path":"sprites/spr_ground_left/spr_ground_left.yy",},},
     {"id":{"name":"spr_ground_mid","path":"sprites/spr_ground_mid/spr_ground_mid.yy",},},
@@ -107,11 +95,8 @@ master
     {"id":{"name":"spr_hill_left2","path":"sprites/spr_hill_left2/spr_hill_left2.yy",},},
     {"id":{"name":"spr_hill_right","path":"sprites/spr_hill_right/spr_hill_right.yy",},},
     {"id":{"name":"spr_hill_right2","path":"sprites/spr_hill_right2/spr_hill_right2.yy",},},
- master
-
     {"id":{"name":"spr_mountains_dark","path":"sprites/spr_mountains_dark/spr_mountains_dark.yy",},},
     {"id":{"name":"spr_player_armor","path":"sprites/spr_player_armor/spr_player_armor.yy",},},
- Master
     {"id":{"name":"spr_player_death_ani","path":"sprites/spr_player_death_ani/spr_player_death_ani.yy",},},
     {"id":{"name":"spr_player_jump","path":"sprites/spr_player_jump/spr_player_jump.yy",},},
     {"id":{"name":"spr_player_run_right","path":"sprites/spr_player_run_right/spr_player_run_right.yy",},},
@@ -119,14 +104,9 @@ master
     {"id":{"name":"spr_roof_red","path":"sprites/spr_roof_red/spr_roof_red.yy",},},
     {"id":{"name":"spr_roof_red1","path":"sprites/spr_roof_red1/spr_roof_red1.yy",},},
     {"id":{"name":"spr_roof_red2","path":"sprites/spr_roof_red2/spr_roof_red2.yy",},},
-    {"id":{"name":"spr_sign_do","path":"sprites/spr_sign_do/spr_sign_do.yy",},},
-    {"id":{"name":"spr_sign_exclamation","path":"sprites/spr_sign_exclamation/spr_sign_exclamation.yy",},},
-    {"id":{"name":"spr_sign_not","path":"sprites/spr_sign_not/spr_sign_not.yy",},},
-    {"id":{"name":"spr_sign_touch","path":"sprites/spr_sign_touch/spr_sign_touch.yy",},},
     {"id":{"name":"spr_sign","path":"sprites/spr_sign/spr_sign.yy",},},
     {"id":{"name":"spr_smiley","path":"sprites/spr_smiley/spr_smiley.yy",},},
     {"id":{"name":"spr_smiley2","path":"sprites/spr_smiley2/spr_smiley2.yy",},},
-    {"id":{"name":"spr_smiley3","path":"sprites/spr_smiley3/spr_smiley3.yy",},},
     {"id":{"name":"spr_torch_ani","path":"sprites/spr_torch_ani/spr_torch_ani.yy",},},
     {"id":{"name":"spr_water_ani","path":"sprites/spr_water_ani/spr_water_ani.yy",},},
     {"id":{"name":"spr_water","path":"sprites/spr_water/spr_water.yy",},},
