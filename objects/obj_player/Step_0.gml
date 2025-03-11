@@ -1,7 +1,8 @@
-if (place_meeting(x , y, obj_killbox)) { //Die if touching killbox
-	show_debug_message("Player died successfully!") //Debug
-	player_die(); //Death function
-	exit; // Stop movement
+// Prevent multiple death calls
+if (!dead && place_meeting(x , y, obj_killbox)) { 
+    show_debug_message("Player died successfully!"); // Debug
+    dead = true; // Mark player as dead
+    player_die(); // Death function
 }
 
 // Declare speed variable

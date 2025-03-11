@@ -1,7 +1,10 @@
-//Spwan in unhappy room on death
+
+	dead = false;
+
+//Spawn in unhappy room on death
 if (instance_exists(obj_spawnpoint)) {
 	var spawn = instance_find(obj_spawnpoint, 0);
-	
+
 	x = spawn.x;
 	y = spawn.y
 	

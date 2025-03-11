@@ -1,4 +1,6 @@
 function player_die() {
+	
+	dead = false; // Reset on respawn
     // Ensure global.game_state exists
     if (!variable_global_exists("game_state")) {
         global.game_state = "alive"; // Default state
