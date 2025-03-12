@@ -18,4 +18,4 @@ global.player_exists = false;
 view_camera[0] = noone;
 
 // Delay camera setup to prevent early execution
-alarm[0] = room_speed / 4; // Wait for objects to load before setting camera
+alarm[0] = game_speed / 4; // Wait for objects to load before setting camera

@@ -1,14 +1,14 @@
 {
   "$GMTileSet":"v1",
-  "%Name":"TileSet1",
+  "%Name":"ts_DarkObjects",
   "autoTileSets":[],
   "macroPageTiles":{
     "SerialiseHeight":0,
     "SerialiseWidth":0,
     "TileSerialiseData":[],
   },
-  "name":"TileSet1",
-  "out_columns":1,
+  "name":"ts_DarkObjects",
+  "out_columns":29,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_ground_mid",
-    "path":"sprites/spr_ground_mid/spr_ground_mid.yy",
+    "name":"spr_DarkObjectsTS",
+    "path":"sprites/spr_DarkObjectsTS/spr_DarkObjectsTS.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
@@ -28,11 +28,11 @@
   },
   "tileAnimationFrames":[],
   "tileAnimationSpeed":15.0,
-  "tileHeight":99,
+  "tileHeight":16,
   "tilehsep":0,
   "tilevsep":0,
-  "tileWidth":99,
+  "tileWidth":16,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":1,
+  "tile_count":868,
 }
