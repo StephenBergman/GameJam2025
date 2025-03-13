@@ -15,7 +15,7 @@ var jump_strength = -20; // jump power
 var max_fall_speed = 20; // Capped fall speed
 
 // Applying gravity
-if (!place_meeting(x, y + 2, obj_ground)) { // If not touching ground
+if (!place_meeting(x, y + 2, [obj_ground, tilemap])) { // If not touching ground
     vspeed += gravity * 0.2; // Apply gradual gravity
     if (vspeed > max_fall_speed) vspeed = max_fall_speed; // Cap falling speed
 } 
@@ -24,13 +24,13 @@ else {
 }
 
 // Jumping 
-if ((keyboard_check_pressed(vk_up) || keyboard_check_pressed(vk_space)) && place_meeting(x, y + 2, obj_ground)) {
+if ((keyboard_check_pressed(vk_up) || keyboard_check_pressed(vk_space)) && place_meeting(x, y + 2, [obj_ground, tilemap])) {
     vspeed = jump_strength; // Jump when on ground
 }
 
 // Apply vertical movement 
 if (vspeed > 0) { // Falling down
-    if (place_meeting(x, y + vspeed, obj_ground)) {
+    if (place_meeting(x, y + vspeed, [obj_ground, tilemap])) {
         move_contact_solid(270, abs(vspeed)); // Move down until touching the ground
         vspeed = 0; // Stop falling
     } else {
@@ -38,7 +38,7 @@ if (vspeed > 0) { // Falling down
     }
 } 
 else if (vspeed < 0) { // Jumping
-    if (place_meeting(x, y + vspeed, obj_ground)) {
+    if (place_meeting(x, y + vspeed, [obj_ground, tilemap])) {
         move_contact_solid(90, abs(vspeed)); // Stop at ceiling
         vspeed = 0;
     } else {

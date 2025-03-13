@@ -21,3 +21,7 @@ if (instance_exists(obj_spawnpoint)) {
 vspeed = 0;
 hspeed = 0;
 sprite_index = spr_player
+
+//Tile var
+var collision_layer = layer_get_id("collision_map"); // Get the ID of the tilemap layer
+tilemap = layer_tilemap_get_id(collision_layer); // Get the tilemap ID of the layer

@@ -5,7 +5,8 @@ show_debug_message("✅ obj_controller has been created!");
 persistent = true;
 
 // Ensure the game state exists
-if (!variable_global_exists("game_state")) {
+if (!variable_global_exists("game_state"))
+{
     global.game_state = "alive"; // Default state
     show_debug_message("✅ global.game_state initialized to 'alive'.");
 }
