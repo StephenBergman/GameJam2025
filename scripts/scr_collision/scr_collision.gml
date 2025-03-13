@@ -11,7 +11,7 @@ function tile_meeting_point(x_pos, y_pos)
 /// Function to check if the player is colliding with tiles
 function tile_meeting(x_pos, y_pos)
 {
-	var tolerance = 5 // Number of pixels to shrink from each side
+	var tolerance = .01 // Number of pixels to shrink from each side
 	
     // Check each corner of the player's bounding box
     var s_bbox_left = x_pos + sprite_bbox_left + tolerance;

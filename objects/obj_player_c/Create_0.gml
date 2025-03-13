@@ -2,7 +2,7 @@
 
 // Player Vars
 move_rate = 8;
-jump_rate = 16;
+jump_rate = 10;
 jump_buffer_count = 0;
 jump_buffer = 10;
 jump_ledge_buffer = 10;

@@ -1,13 +1,13 @@
 {
   "$GMTileSet":"v1",
-  "%Name":"ts_TileMask",
+  "%Name":"ts_TileMask_precise",
   "autoTileSets":[],
   "macroPageTiles":{
     "SerialiseHeight":0,
     "SerialiseWidth":0,
     "TileSerialiseData":[],
   },
-  "name":"ts_TileMask",
+  "name":"ts_TileMask_precise",
   "out_columns":3,
   "out_tilehborder":2,
   "out_tilevborder":2,
@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_TileMask_lg",
-    "path":"sprites/spr_TileMask_lg/spr_TileMask_lg.yy",
+    "name":"spr_TileMask_precise",
+    "path":"sprites/spr_TileMask_precise/spr_TileMask_precise.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
