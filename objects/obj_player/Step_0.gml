@@ -68,7 +68,7 @@ if (!keyboard_check(vk_right) && !keyboard_check(vk_left) &&
 
 //Sprites
 if (vspeed < 0 && abs(hspeed) >= 0) { // Only apply jump sprite when stationary & airborne
-    sprite_index = spr_player_jump;
+    sprite_index = spr_player_jump_dark;
 } 
 else if (abs(speed) > 0) { // Running (no separate left sprite needed)
     sprite_index = spr_player_run_right;

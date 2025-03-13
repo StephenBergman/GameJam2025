@@ -1,27 +1,33 @@
 /// @description Control Player
 
 // ======= DIAGNOSTIC CHECKS =======
-var is_grounded = place_meeting(x, y + 3, [obj_ground, tilemap]);
-var is_colliding_x = place_meeting(x + 1, y, [obj_ground, tilemap]) || place_meeting(x - 1, y, [obj_ground, tilemap]);
-var is_colliding_y = place_meeting(x, y, [obj_ground, tilemap]);
-var is_inside_tilemap = place_meeting(x, y, tilemap);
-var is_inside_ground = place_meeting(x, y, obj_ground);
+var is_grounded = tile_meeting(x, y + 1);
+var is_colliding_x = tile_meeting(x + sign(hspeed), y);
+var is_colliding_y = tile_meeting(x, y + sign(vspeed));
+var is_inside_tilemap = tile_meeting(x, y);
 
 show_debug_message("=== DIAGNOSTIC INFO ===");
 show_debug_message("Is Grounded: " + string(is_grounded));
 show_debug_message("Is Colliding X: " + string(is_colliding_x));
 show_debug_message("Is Colliding Y: " + string(is_colliding_y));
 show_debug_message("Is Inside Tilemap: " + string(is_inside_tilemap));
-show_debug_message("Is Inside Ground: " + string(is_inside_ground));
+
 show_debug_message("Current X: " + string(x) + ", Y: " + string(y));
 show_debug_message("Sprite Origin: " + string(sprite_get_xoffset(sprite_index)) + ", " + string(sprite_get_yoffset(sprite_index)));
 show_debug_message("Current Sprite: " + sprite_get_name(sprite_index));
 show_debug_message("Collision Mask: " + sprite_get_name(mask_index == -1 ? sprite_index : mask_index));
-// ======= END DIAGNOSTIC =======
 
 // ======= CORE MOVEMENT APPROACH =======
+
+// Prevent starting a fram stuck
+if (is_inside_tilemap)
+{
+    resolve_stuck();
+}
+
 // Get input
 move_input_total = 0;
+
 if keyboard_check(control_left) || keyboard_check(control_left_alt) { move_input_total -= 1; }
 if keyboard_check(control_right) || keyboard_check(control_right_alt) { move_input_total += 1; }
 
@@ -38,18 +44,27 @@ if jump_buffer_count < jump_buffer
 }
 
 // Calculate horizontal speed change
-if (move_input_total != 0) {
+if (move_input_total != 0)
+{
     // Player is providing input - accelerate
-    if (is_grounded) {
+    if (is_grounded) 
+	{
         hspeed += move_input_total * accel_rate_ground;
-    } else {
+    }
+	else 
+	{
         hspeed += move_input_total * accel_rate_air;
     }
-} else {
+}
+else 
+{
     // Apply braking when no input
-    if (is_grounded) {
+    if (is_grounded)
+	{
         hspeed *= (1 - brake_rate_ground);
-    } else {
+    }
+	else 
+	{
         hspeed *= (1 - brake_rate_air);
     }
 }
@@ -61,49 +76,61 @@ if (abs(hspeed) < 0.1) hspeed = 0;
 hspeed = clamp(hspeed, -move_rate, move_rate);
 
 // Apply gravity if in air
-if (!is_grounded) {
+if (!is_grounded) 
+{
     vspeed += gravity_rate;
     if (vspeed > gravity_vspeed) vspeed = gravity_vspeed;
-} else {
+}
+else 
+{
     // Reset vertical speed when on ground
     vspeed = 0;
 }
 
 // Handle jumping
-if (jump_buffer_count < jump_buffer && is_grounded) {
+if (jump_buffer_count < jump_buffer && is_grounded) 
+{
     vspeed = -jump_rate;
     jump_buffer_count = jump_buffer;
 }
 
 // ===== DIRECT MOVEMENT APPROACH =====
-// Try to move horizontally
-x += hspeed;
+
 // Check for collision
-if (place_meeting(x, y, [obj_ground, tilemap])) {
+if (!tile_meeting(x + hspeed, y))
+{
     // Move back
-    x -= hspeed;
+    x += hspeed;
+}
+else
+{
     // Try to move pixel by pixel
     var i = 0;
     var max_steps = abs(hspeed);
     var dir = sign(hspeed);
-    while (i < max_steps && !place_meeting(x + dir, y, [obj_ground, tilemap])) {
+    while (i < max_steps && !tile_meeting(x + dir, y)) 
+	{
         x += dir;
         i++;
     }
     hspeed = 0;
 }
 
-// Try to move vertically
-y += vspeed;
+
 // Check for collision
-if (place_meeting(x, y, [obj_ground, tilemap])) {
-    // Move back
-    y -= vspeed;
+if (!tile_meeting(x, y + vspeed))
+{
+	// Try to move vertically
+	y += vspeed;
+}
+else
+{
     // Try to move pixel by pixel
     var i = 0;
     var max_steps = abs(vspeed);
     var dir = sign(vspeed);
-    while (i < max_steps && !place_meeting(x, y + dir, [obj_ground, tilemap])) {
+    while (i < max_steps && !tile_meeting(x, y + dir))
+	{
         y += dir;
         i++;
     }
@@ -111,15 +138,18 @@ if (place_meeting(x, y, [obj_ground, tilemap])) {
 }
 
 // Sprites
-if (vspeed < 0) { 
+if (vspeed < 0) 
+{ 
     sprite_index = spr_player_jump;
 } 
-else if (abs(hspeed) > 0.1) { 
+else if (abs(hspeed) > 0.1)
+{ 
     sprite_index = spr_player_run_right;
     image_xscale = sign(hspeed);
     if (image_xscale == 0) image_xscale = 1;  // Default to facing right if speed is exactly 0
 } 
-else { 
+else 
+{ 
     sprite_index = spr_player; 
 }
 
