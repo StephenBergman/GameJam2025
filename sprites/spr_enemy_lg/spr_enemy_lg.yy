@@ -45,8 +45,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"Players",
-    "path":"folders/Sprites/Players.yy",
+    "name":"Enemies",
+    "path":"folders/Sprites/Enemies.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

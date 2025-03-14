@@ -32,10 +32,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":true,
-  "spriteId":{
-    "name":"spr_bld_dark",
-    "path":"sprites/spr_bld_dark/spr_bld_dark.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

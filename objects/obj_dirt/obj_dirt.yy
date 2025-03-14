@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":true,
-  "spriteId":{
-    "name":"spr_dirt",
-    "path":"sprites/spr_dirt/spr_dirt.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
