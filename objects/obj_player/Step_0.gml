@@ -1,83 +1,63 @@
-// Prevent multiple death calls
-if (!dead && place_meeting(x , y, obj_killbox)) { 
-    show_debug_message("Player died successfully!"); // Debug
-    dead = true; // Mark player as dead
-    player_die(); // Death function
+
+
+// ======= DIAGNOSTIC CHECKS =======
+var is_grounded = tile_meeting(x, y + 1);
+var is_colliding_x = tile_meeting(x + sign(hspeed), y);
+var is_colliding_y = tile_meeting(x, y + sign(vspeed));
+var is_inside_tilemap = tile_meeting(x, y);
+
+// Check for slopes before other collision
+var on_slope_last_frame = on_slope;
+check_slope_collision();
+
+// If on a slope, override the is_grounded value
+if (on_slope) is_grounded = true;
+
+show_debug_message("=== DIAGNOSTIC INFO ===");
+show_debug_message("Is Grounded: " + string(is_grounded));
+show_debug_message("Is Colliding X: " + string(is_colliding_x));
+show_debug_message("Is Colliding Y: " + string(is_colliding_y));
+show_debug_message("Is Inside Tilemap: " + string(is_inside_tilemap));
+
+show_debug_message("Current X: " + string(x) + ", Y: " + string(y));
+show_debug_message("Sprite Origin: " + string(sprite_get_xoffset(sprite_index)) + ", " + string(sprite_get_yoffset(sprite_index)));
+show_debug_message("Current Sprite: " + sprite_get_name(sprite_index));
+show_debug_message("Collision Mask: " + sprite_get_name(mask_index == -1 ? sprite_index : mask_index));
+
+
+// Prevent starting a frame stuck
+if (is_inside_tilemap)
+{
+    resolve_stuck();
 }
 
-// Declare speed variable
-var accel = 2; // How fast player speeds up
-var max_speed = 8; // Max movement speed
+// Get input
+move_input_total = 0;
 
-// Gravity and jump variables
-gravity = 8; // Gravity
-var jump_strength = -20; // jump power
-var max_fall_speed = 20; // Capped fall speed
+if keyboard_check(control_left) || keyboard_check(control_left_alt) { move_input_total -= 1; }
+if keyboard_check(control_right) || keyboard_check(control_right_alt) { move_input_total += 1; }
 
-// Applying gravity
-if (!place_meeting(x, y + 2, [obj_ground, tilemap])) { // If not touching ground
-    vspeed += gravity * 0.2; // Apply gradual gravity
-    if (vspeed > max_fall_speed) vspeed = max_fall_speed; // Cap falling speed
-} 
-else {
-    vspeed = 0; // Stop falling when on ground
+// Jump input buffer
+if keyboard_check_pressed(control_jump) || keyboard_check_pressed(control_jump_alt)
+{
+   jump_buffer_count = 0;
 }
 
-// Jumping 
-if ((keyboard_check_pressed(vk_up) || keyboard_check_pressed(vk_space)) && place_meeting(x, y + 2, [obj_ground, tilemap])) {
-    vspeed = jump_strength; // Jump when on ground
+// Track if the jump button is held
+if keyboard_check(control_jump) || keyboard_check(control_jump_alt)
+{
+    jump_held = true;
 }
-
-// Apply vertical movement 
-if (vspeed > 0) { // Falling down
-    if (place_meeting(x, y + vspeed, [obj_ground, tilemap])) {
-        move_contact_solid(270, abs(vspeed)); // Move down until touching the ground
-        vspeed = 0; // Stop falling
-    } else {
-        y += vspeed; // Move normally if no collision
-    }
-} 
-else if (vspeed < 0) { // Jumping
-    if (place_meeting(x, y + vspeed, [obj_ground, tilemap])) {
-        move_contact_solid(90, abs(vspeed)); // Stop at ceiling
-        vspeed = 0;
-    } else {
-        y += vspeed;
-    }
+else 
+{
+    jump_held = false;
 }
-
-// Player movement (Left/Right)
-if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
-    hspeed += accel;  // Accelerate to the right
-    if (hspeed > max_speed) hspeed = max_speed; // Cap speed
-    image_xscale = 1; // Face right
-} 
-else if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
-    hspeed -= accel;  // Accelerate to the left 
-    if (hspeed < -max_speed) hspeed = -max_speed; // Cap leftward speed
-    image_xscale = -1; // Flip sprite
-} 
-
-
-
-if (!keyboard_check(vk_right) && !keyboard_check(vk_left) &&
-!keyboard_check(ord("D")) && !keyboard_check(ord("A"))) {
-	hspeed = 0;
+	
+switch(state)
+{
+	case PLAYERSTATE.FREE: PlayerState_Free();
+		break;
+		
+	case PLAYERSTATE.ATTACK: PlayerState_Attack();
+		break;
 }
-
-
-//Sprites
-if (vspeed < 0 && abs(hspeed) >= 0) { // Only apply jump sprite when stationary & airborne
-    sprite_index = spr_player_jump_dark;
-} 
-else if (abs(speed) > 0) { // Running (no separate left sprite needed)
-    sprite_index = spr_player_run_right;
-} 
-else { // Standing still
-    sprite_index = spr_player; 
-}
-
-
-
-// Apply movement
-x += hspeed;
