@@ -27,13 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":true,
-  "spriteId":{
-    "name":"spr_ground_dark",
-    "path":"sprites/spr_ground_dark/spr_ground_dark.yy",
-  },
-  "spriteMaskId":{
-    "name":"spr_ground_dark",
-    "path":"sprites/spr_ground_dark/spr_ground_dark.yy",
-  },
+  "spriteId":null,
+  "spriteMaskId":null,
   "visible":true,
 }

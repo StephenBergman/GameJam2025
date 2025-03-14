@@ -8,8 +8,8 @@
   "name":"obj_bg_dark",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Draw",
+    "path":"folders/Objects/Draw.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_water",
-    "path":"sprites/spr_water/spr_water.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

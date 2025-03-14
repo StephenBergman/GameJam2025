@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_smiley",
-    "path":"sprites/spr_smiley/spr_smiley.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

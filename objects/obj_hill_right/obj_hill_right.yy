@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_hill_right",
-    "path":"sprites/spr_hill_right/spr_hill_right.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

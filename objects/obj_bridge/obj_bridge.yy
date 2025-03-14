@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":true,
-  "spriteId":{
-    "name":"spr_bridge",
-    "path":"sprites/spr_bridge/spr_bridge.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
