@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"PlayerState_Attack",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Player States",
+    "path":"folders/Scripts/Player Structs/Player States.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

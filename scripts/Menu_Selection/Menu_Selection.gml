@@ -3,7 +3,12 @@ function executeMenuSelection(){
 	if (keyboard_check_pressed(vk_enter)) {
 		switch (pauseOptionSelected) {
 			case 0: //continue
+			
 			pause = false;
+			instance_activate_all();
+			if (surface_exists(pauseSurf)) surface_free(pauseSurf);
+			if (buffer_exists(pauseSurfBuffer)) buffer_delete(pauseSurfBuffer);
+		
 			break;
 			
 			case 1: //options
