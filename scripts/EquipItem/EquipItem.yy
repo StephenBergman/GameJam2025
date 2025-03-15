@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"Script7",
+  "%Name":"EquipItem",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Script7",
+  "name":"EquipItem",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Player Structs",
+    "path":"folders/Scripts/Player Structs.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

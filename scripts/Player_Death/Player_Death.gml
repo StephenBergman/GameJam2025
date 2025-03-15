@@ -16,9 +16,7 @@ function player_die() {
     show_debug_message("Player has died! Triggering death screen...");
 
     // Stop movement
-    vspeed = 0;
-    hspeed = 0;
-    speed = 0;
+  instance_deactivate_all(true);
 
     // Create the death screen if it doesn't exist
     if (!instance_exists(obj_death_screen)) {
@@ -33,7 +31,7 @@ function player_die() {
     } else {
         show_debug_message("WARNING: alarm[0] was already running!");
     }
-
+instance_activate_all();
     // Play death sound
     //audio_play_sound(snd_death, 1, false);
 }
