@@ -91,12 +91,6 @@ function PlayerState_Free()
 		}
 	}
 
-	//// Apply slope sliding when no input and on a slope
-	//if (is_grounded && on_slope) 
-	//{
-	//    handle_slope_sliding();
-	//}
-
 	// ===== END OF MOVEMENT HANDLING =====
 
 	// ===== COLLISION MOVEMENT HANDLING =====
@@ -159,26 +153,26 @@ function PlayerState_Free()
 	{
 		if(jump_count == 0)
 		{
-			sprite_index = spr_player_jump;
+			sprite_index = sWarrior_jump;
 		}
 		else
 		{
-			sprite_index = spr_player_jump2;
+			sprite_index = sWarrior_jump;
 		}
 	} 
 	else if (vspeed > 0) 
 	{ 
-	    sprite_index = spr_player_fall;  // New falling sprite when vspeed is positive
+	    sprite_index = sWarrior_fall;  // New falling sprite when vspeed is positive
 	} 
 	else if (abs(hspeed) > 0.1)
 	{ 
-	    sprite_index = spr_player_run_right;
+	    sprite_index = sWarrior_run;
 	    image_xscale = sign(hspeed);
 	    if (image_xscale == 0) image_xscale = 1;  // Default to facing right if speed is exactly 0
 	} 
 	else 
 	{ 
-	    sprite_index = spr_player; 
+	    sprite_index = sWarrior_idle; 
 	}
 
 	// ===== END OF SPRITE MOVEMENT HANDLING =====
@@ -192,5 +186,3 @@ function PlayerState_Free()
 	show_debug_message("VSpeed: " + string(vspeed));
 	show_debug_message("On Slope: " + string(on_slope));
 }
-
-//if(keyAttack) state = PLAYERSTATE.ATTACK;
