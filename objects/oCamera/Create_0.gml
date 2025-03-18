@@ -15,7 +15,12 @@ finalCamY = 0;
 
 camTrailSpd = 0.4;
 
-//parallax vars
+//Light Parallax vars
+frontLayer = layer_get_id("bg_Dark_Graveyard");
+middleLayer = layer_get_id("bg_DarkMountain");
+backLayer = layer_get_id("bg_DarkMoon");
+
+//Dark Parallax vars
 frontLayer = layer_get_id("bg_Dark_Graveyard");
 middleLayer = layer_get_id("bg_DarkMountain");
 backLayer = layer_get_id("bg_DarkMoon");
