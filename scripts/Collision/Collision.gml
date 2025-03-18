@@ -37,7 +37,7 @@ function tile_meeting(x_pos, y_pos)
 function object_meeting_point(x_pos, y_pos)
 {
     // Check if the point collides with any obj_wall instance
-    var inst = instance_position(x_pos, y_pos, obj_wall);
+    var inst = instance_position(x_pos, y_pos, oWall);
     // Return true if there's a collision
     return inst != noone;
 }
@@ -75,12 +75,12 @@ function check_slope_collision()
     slope_object = noone;
     
     // Check for slope objects below the player
-    var slope = instance_place(x, y + 1, obj_wall);
+    var slope = instance_place(x, y + 1, oWall);
     
     if (slope != noone) 
 	{
         // If we found a potential slope object
-        if (object_is_ancestor(slope.object_index, obj_wall) && slope.object_index != obj_wall)
+        if (object_is_ancestor(slope.object_index, oWall) && slope.object_index != oWall)
 		{
             // It's a child of obj_wall (a slope)
             on_slope = true;
@@ -104,28 +104,28 @@ function handle_slope_movement()
     // For this example, we'll assume you've set the slope direction in the object
     switch(slope_object.object_index) 
 	{
-        case obj_slope_tr: // 45 degrees top right
+        case oSlope_tr: // 45 degrees top right
             slope_x1 = slope_object.bbox_left;
             slope_y1 = slope_object.bbox_bottom;
             slope_x2 = slope_object.bbox_right;
             slope_y2 = slope_object.bbox_top;
             break;
             
-        case obj_slope_tl: // 45 degrees top left
+        case oSlope_tl: // 45 degrees top left
             slope_x1 = slope_object.bbox_right;
             slope_y1 = slope_object.bbox_bottom;
             slope_x2 = slope_object.bbox_left;
             slope_y2 = slope_object.bbox_top;
             break;
             
-        case obj_slope_br: // 45 degrees bottom right
+        case oSlope_br: // 45 degrees bottom right
             slope_x1 = slope_object.bbox_left;
             slope_y1 = slope_object.bbox_bottom;
             slope_x2 = slope_object.bbox_right;
             slope_y2 = slope_object.bbox_top;
             break;
             
-        case obj_slope_bl: // 45 degrees bottom left
+        case oSlope_bl: // 45 degrees bottom left
             slope_x1 = slope_object.bbox_right;
             slope_y1 = slope_object.bbox_bottom;
             slope_x2 = slope_object.bbox_left;
@@ -165,16 +165,16 @@ function handle_slope_sliding()
         
         switch(slope_object.object_index) 
 		{
-            case obj_slope_tr: // Top-Right slope
+            case oSlope_tr: // Top-Right slope
                 slope_direction = -1; // Slide left on up-right slope
                 break;
-            case obj_slope_tl: // Top-Left slope
+            case oSlope_tl: // Top-Left slope
                 slope_direction = 1;  // Slide right on up-left slope
                 break;
-            case obj_slope_br: // Bottom-Right slope
+            case oSlope_br: // Bottom-Right slope
                 slope_direction = -0.5; // Slide left slower on shallow slope
                 break;
-            case obj_slope_bl: // Bottom-Left slope
+            case oSlope_bl: // Bottom-Left slope
                 slope_direction = 0.5;  // Slide right slower on shallow slope
                 break;
         }

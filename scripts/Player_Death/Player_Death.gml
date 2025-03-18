@@ -19,8 +19,8 @@ function player_die() {
   instance_deactivate_all(true);
 
     // Create the death screen if it doesn't exist
-    if (!instance_exists(obj_death_screen)) {
-        instance_create_depth(0, 0, -1000, obj_death_screen);
+    if (!instance_exists(oDeath_screen)) {
+        instance_create_depth(0, 0, -1000, oDeath_screen);
         show_debug_message("Death screen created.");
     }
 

@@ -1,0 +1,54 @@
+
+state = PLAYERSTATE.FREE
+
+// Player Vars
+move_rate = 4;
+jump_rate = 5;
+jump_buffer_count = 0;
+jump_buffer = 10;
+jump_ledge_buffer = 5;
+jump_count = 0;
+jump_max = 1;
+jump_held = false;
+accel_rate_ground = 1;
+accel_rate_air = 0.1;
+brake_rate_ground = 0.9;
+brake_rate_air = 0.2;
+gravity_vspeed = 5;
+gravity_rate_base = 0.3;
+gravity_rate_peak = 0.15;
+gravity_rate_fast = 1.5;
+
+
+// Controls
+control_left = ord("A");
+control_right = ord("D");
+control_jump = vk_space;
+// Alternate Controls
+control_left_alt = vk_left;
+control_right_alt = vk_right;
+control_jump_alt = vk_up;
+
+//Sprite check
+if (sprite_index == noone) sprite_index = sPlayer; // Replace with your default sprite
+
+//Sprite var
+sprite_bbox_left = sprite_get_bbox_left(sprite_index) - sprite_get_xoffset(sprite_index);
+sprite_bbox_right = sprite_get_bbox_right(sprite_index) - sprite_get_xoffset(sprite_index);
+sprite_bbox_bottom = sprite_get_bbox_bottom(sprite_index) - sprite_get_yoffset(sprite_index);
+sprite_bbox_top = sprite_get_bbox_top(sprite_index) - sprite_get_yoffset(sprite_index);
+
+//Tile var
+var collision_layer = layer_get_id("collision_map"); // Get the ID of the tilemap layer
+tilemap = layer_tilemap_get_id(collision_layer); // Get the tilemap ID of the layer
+
+//Collision Logic var
+is_grounded = tile_meeting(x, y + 1);
+is_colliding_x = tile_meeting(x + sign(hspeed), y);
+is_colliding_y = tile_meeting(x, y + sign(vspeed));
+is_inside_tilemap = tile_meeting(x, y);
+
+//Separate variables for slope collision
+slope_max_angle = 45;  // Maximum angle (in degrees) player can climb
+on_slope = false;      // Flag to track if player is on a slope
+slope_object = noone;  // Reference to current slope object
