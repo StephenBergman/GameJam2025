@@ -13,4 +13,9 @@ surface_resize(application_surface, view_width * window_scale, view_height * win
 finalCamX = 0;
 finalCamY = 0;
 
-camTrailSpd = 0.25;
+camTrailSpd = 0.4;
+
+//parallax vars
+frontLayer = layer_get_id("bg_Dark_Graveyard");
+middleLayer = layer_get_id("bg_DarkMountain");
+backLayer = layer_get_id("bg_DarkMoon");

@@ -1,25 +1,35 @@
-
-//Create macro for constant use of view_camera
-#macro view view_camera[0]
-
 //Fullscreen toggle
 if keyboard_check_pressed(vk_f11)
 {
 	window_set_fullscreen(!window_get_fullscreen());
 }
 
+//Exit if theres no Player
+if !instance_exists(oPlayer) exit;
 
-camera_set_view_size(view, view_width, view_height);
+//Get camera size
+var cam_width = camera_get_view_width(view_camera[0]);
+var cam_height = camera_get_view_height(view_camera[0]);
 
-if(instance_exists(oPlayer))
+//Get camera target coords
+var cam_x = oPlayer.x - cam_width/2;
+var cam_y = oPlayer.y - cam_height/2;
+
+//Constrain cam to room borders
+cam_x = clamp(cam_x, 0, room_width - cam_width);
+cam_y = clamp(cam_y, 0 ,room_height - cam_height);
+
+//Set cam coord variables
+var y_tolerance = 40;
+finalCamX += (cam_x - finalCamX) * camTrailSpd;
+finalCamY += (cam_y - finalCamY - y_tolerance) * camTrailSpd;
+
+//Set camera coords
+camera_set_view_pos(view_camera[0], finalCamX, finalCamY);
+
+if (layer_exists(backLayer))
 {
-	var _x = clamp(oPlayer.x - view_width/2, 0, room_width - view_width);
-	var _y = clamp(oPlayer.y - view_height/2, 0, room_height - view_height);
-	camera_set_view_pos(view, _x, _y);
-	
-	var cur_x = camera_get_view_x(view);
-	var cur_y = camera_get_view_y(view);
-	
-	var _speed = 0.1;
-	camera_set_view_pos (view, lerp(cur_x, _x, _speed), lerp(cur_y, _y, _speed));
+	layer_x(backLayer, cam_x/1.5);
+	layer_x(middleLayer, cam_x/4);
+	layer_x(frontLayer, cam_x/100);
 }

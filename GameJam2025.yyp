@@ -39,9 +39,9 @@
     {"$GMFolder":"","%Name":"Enemies","folderPath":"folders/Sprites/Enemies.yy","name":"Enemies","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Equipment","folderPath":"folders/Sprites/Equipment.yy","name":"Equipment","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Ground","folderPath":"folders/Sprites/Ground.yy","name":"Ground","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Other Character Sprites","folderPath":"folders/Sprites/Other Character Sprites.yy","name":"Other Character Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"MCv1","folderPath":"folders/Sprites/MCv1.yy","name":"MCv1","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"MCv2","folderPath":"folders/Sprites/MCv2.yy","name":"MCv2","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Other Character Sprites","folderPath":"folders/Sprites/Other Character Sprites.yy","name":"Other Character Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Players_Dark","folderPath":"folders/Sprites/Other Character Sprites/Players_Dark.yy","name":"Players_Dark","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Players","folderPath":"folders/Sprites/Other Character Sprites/Players.yy","name":"Players","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Player_assets","folderPath":"folders/Sprites/Other Character Sprites/Players/Player_assets.yy","name":"Player_assets","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -87,6 +87,7 @@
     {"id":{"name":"oUI","path":"objects/oUI/oUI.yy",},},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},},
     {"id":{"name":"rDev","path":"rooms/rDev/rDev.yy",},},
+    {"id":{"name":"Tutorial","path":"rooms/Tutorial/Tutorial.yy",},},
     {"id":{"name":"Collision","path":"scripts/Collision/Collision.yy",},},
     {"id":{"name":"EquipItem","path":"scripts/EquipItem/EquipItem.yy",},},
     {"id":{"name":"Menu_Selection","path":"scripts/Menu_Selection/Menu_Selection.yy",},},
@@ -195,6 +196,7 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"rDev","path":"rooms/rDev/rDev.yy",},},
+    {"roomId":{"name":"Tutorial","path":"rooms/Tutorial/Tutorial.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
