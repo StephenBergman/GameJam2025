@@ -13,11 +13,11 @@ check_slope_collision();
 // If on a slope, override the is_grounded value
 if (on_slope) is_grounded = true;
 
-show_debug_message("=== DIAGNOSTIC INFO ===");
-show_debug_message("Is Grounded: " + string(is_grounded));
-show_debug_message("Is Colliding X: " + string(is_colliding_x));
-show_debug_message("Is Colliding Y: " + string(is_colliding_y));
-show_debug_message("Is Inside Tilemap: " + string(is_inside_tilemap));
+//show_debug_message("=== DIAGNOSTIC INFO ===");
+//show_debug_message("Is Grounded: " + string(is_grounded));
+//show_debug_message("Is Colliding X: " + string(is_colliding_x));
+//show_debug_message("Is Colliding Y: " + string(is_colliding_y));
+//show_debug_message("Is Inside Tilemap: " + string(is_inside_tilemap));
 
 show_debug_message("Current X: " + string(x) + ", Y: " + string(y));
 show_debug_message("Sprite Origin: " + string(sprite_get_xoffset(sprite_index)) + ", " + string(sprite_get_yoffset(sprite_index)));
@@ -37,6 +37,13 @@ move_input_total = 0;
 if keyboard_check(control_left) || keyboard_check(control_left_alt) { move_input_total -= 1; }
 if keyboard_check(control_right) || keyboard_check(control_right_alt) { move_input_total += 1; }
 
+var interact = keyboard_check(control_interact) || keyboard_check(control_interact_alt)
+if (place_meeting(x, y, oRoomDoor) && interact)
+{
+    room_goto_next();
+}
+
+
 // Jump input buffer
 if keyboard_check_pressed(control_jump) || keyboard_check_pressed(control_jump_alt)
 {
@@ -53,7 +60,7 @@ else
     jump_held = false;
 }
 
-if (mouse_check_button_pressed(mb_left))
+if (mouse_check_button_pressed(control_attack))
 {
     state = PLAYERSTATE.ATTACK;
 }

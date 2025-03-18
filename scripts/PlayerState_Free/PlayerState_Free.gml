@@ -180,9 +180,9 @@ function PlayerState_Free()
 	// ===== POST MOVEMENT DEBUG INFO =====
 
 	// Regular debug info
-	show_debug_message("HInput: " + string(move_input_total));
-	show_debug_message("Jump Buffer Count: " + string(jump_buffer_count));
-	show_debug_message("HSpeed: " + string(hspeed));
-	show_debug_message("VSpeed: " + string(vspeed));
-	show_debug_message("On Slope: " + string(on_slope));
+	//show_debug_message("HInput: " + string(move_input_total));
+	//show_debug_message("Jump Buffer Count: " + string(jump_buffer_count));
+	//show_debug_message("HSpeed: " + string(hspeed));
+	//show_debug_message("VSpeed: " + string(vspeed));
+	//show_debug_message("On Slope: " + string(on_slope));
 }

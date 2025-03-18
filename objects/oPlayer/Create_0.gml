@@ -10,7 +10,7 @@ state = PLAYERSTATE.FREE;
 hitByAttack = ds_list_create();
 
 // Player Vars
-move_rate = 4;
+move_rate = 2.5;
 jump_rate = 5;
 jump_buffer_count = 0;
 jump_buffer = 10;
@@ -22,7 +22,7 @@ accel_rate_ground = 1;
 accel_rate_air = 0.1;
 brake_rate_ground = 0.9;
 brake_rate_air = 0.2;
-gravity_vspeed = 5;
+gravity_vspeed = 3;
 gravity_rate_base = 0.3;
 gravity_rate_peak = 0.15;
 gravity_rate_fast = 1.5;
@@ -32,11 +32,14 @@ gravity_rate_fast = 1.5;
 control_left = ord("A");
 control_right = ord("D");
 control_jump = vk_space;
-control_attack = mouse_button
+control_attack = mb_left;
+control_interact =  ord("E");
 // Alternate Controls
 control_left_alt = vk_left;
 control_right_alt = vk_right;
 control_jump_alt = vk_up;
+control_interact_alt = vk_enter;
+
 
 //Sprite var
 sprite_bbox_left = sprite_get_bbox_left(sprite_index) - sprite_get_xoffset(sprite_index);
