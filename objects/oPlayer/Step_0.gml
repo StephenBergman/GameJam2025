@@ -13,16 +13,19 @@ check_slope_collision();
 // If on a slope, override the is_grounded value
 if (on_slope) is_grounded = true;
 
-//show_debug_message("=== DIAGNOSTIC INFO ===");
-//show_debug_message("Is Grounded: " + string(is_grounded));
-//show_debug_message("Is Colliding X: " + string(is_colliding_x));
-//show_debug_message("Is Colliding Y: " + string(is_colliding_y));
-//show_debug_message("Is Inside Tilemap: " + string(is_inside_tilemap));
+if (player_debug_mode = true)
+{
+	show_debug_message("=== DIAGNOSTIC INFO ===");
+	show_debug_message("Is Grounded: " + string(is_grounded));
+	show_debug_message("Is Colliding X: " + string(is_colliding_x));
+	show_debug_message("Is Colliding Y: " + string(is_colliding_y));
+	show_debug_message("Is Inside Tilemap: " + string(is_inside_tilemap));
 
-show_debug_message("Current X: " + string(x) + ", Y: " + string(y));
-show_debug_message("Sprite Origin: " + string(sprite_get_xoffset(sprite_index)) + ", " + string(sprite_get_yoffset(sprite_index)));
-show_debug_message("Current Sprite: " + sprite_get_name(sprite_index));
-show_debug_message("Collision Mask: " + sprite_get_name(mask_index == -1 ? sprite_index : mask_index));
+	show_debug_message("Current X: " + string(x) + ", Y: " + string(y));
+	show_debug_message("Sprite Origin: " + string(sprite_get_xoffset(sprite_index)) + ", " + string(sprite_get_yoffset(sprite_index)));
+	show_debug_message("Current Sprite: " + sprite_get_name(sprite_index));
+	show_debug_message("Collision Mask: " + sprite_get_name(mask_index == -1 ? sprite_index : mask_index));
+}
 
 
 // Prevent starting a frame stuck

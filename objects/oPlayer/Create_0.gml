@@ -10,8 +10,8 @@ state = PLAYERSTATE.FREE;
 hitByAttack = ds_list_create();
 
 // Player Vars
-move_rate = 2.5;
-jump_rate = 5;
+move_rate = 2;
+jump_rate = 4;
 jump_buffer_count = 0;
 jump_buffer = 10;
 jump_ledge_buffer = 5;
@@ -25,7 +25,7 @@ brake_rate_air = 0.2;
 gravity_vspeed = 3;
 gravity_rate_base = 0.3;
 gravity_rate_peak = 0.15;
-gravity_rate_fast = 1.5;
+gravity_rate_fast = 0.5;
 
 
 // Controls
@@ -55,4 +55,8 @@ tilemap = layer_tilemap_get_id(collision_layer); // Get the tilemap ID of the la
 slope_max_angle = 45;  // Maximum angle (in degrees) player can climb
 on_slope = false;      // Flag to track if player is on a slope
 slope_object = noone;  // Reference to current slope object
+slope_buffer = 0;
+
+//Debug Mode
+player_debug_mode = false;
 

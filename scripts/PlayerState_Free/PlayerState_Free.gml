@@ -2,6 +2,14 @@ function PlayerState_Free()
 {
 	// ======= MOVEMENT HANDLING =======
 	
+	//Add slope buffer to prevent collision issues
+	if (slope_buffer > 0) slope_buffer--;
+	
+	//Check if on a slope
+	check_slope_collision();
+	
+	move_with_collision(hspeed, vspeed);
+	
 	var is_grounded = tile_meeting(x, y + 1);
 	var is_colliding_x = tile_meeting(x + sign(hspeed), y);
 	var is_colliding_y = tile_meeting(x, y + sign(vspeed));
@@ -108,11 +116,16 @@ function PlayerState_Free()
 	    var i = 0;
 	    var max_steps = abs(hspeed);
 	    var dir = sign(hspeed);
+		
 	    while (i < max_steps && !tile_meeting(x + dir, y))
 	    {
-	        x += dir;
+			if (tile_meeting(x + dir, y) && !tile_meeting(x, y + 1))
+			{
+				break;
+			}
+			x += dir;
 	        i++;
-	    }
+	    }		
 	    hspeed = 0;
 	}
 
@@ -135,6 +148,7 @@ function PlayerState_Free()
 	    }
 	    vspeed = 0;
 	}
+
 
 	//OBJECT COLLISION (SLOPES)
 	// After tile movement, adjust for slopes
@@ -160,9 +174,9 @@ function PlayerState_Free()
 			sprite_index = sWarrior_jump;
 		}
 	} 
-	else if (vspeed > 0) 
+	else if (vspeed > 0  && !is_grounded) 
 	{ 
-	    sprite_index = sWarrior_fall;  // New falling sprite when vspeed is positive
+	    sprite_index = sWarrior_fall; // New falling sprite when vspeed is positive
 	} 
 	else if (abs(hspeed) > 0.1)
 	{ 
@@ -170,7 +184,7 @@ function PlayerState_Free()
 	    image_xscale = sign(hspeed);
 	    if (image_xscale == 0) image_xscale = 1;  // Default to facing right if speed is exactly 0
 	} 
-	else 
+	else if (vspeed == 0 && hspeed == 0)
 	{ 
 	    sprite_index = sWarrior_idle; 
 	}

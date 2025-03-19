@@ -22,15 +22,41 @@ function tile_meeting(x_pos, y_pos)
     var s_bbox_bottom = y_pos + sprite_bbox_bottom + tolerance;
     
     // Check all four corners and the middle points of each edge
-    return 
-        tile_meeting_point(s_bbox_left, s_bbox_top) ||
+    if (tile_meeting_point(s_bbox_left, s_bbox_top) ||
         tile_meeting_point(s_bbox_right, s_bbox_top) ||
         tile_meeting_point(s_bbox_left, s_bbox_bottom) ||
         tile_meeting_point(s_bbox_right, s_bbox_bottom) ||
         tile_meeting_point(s_bbox_left, (s_bbox_top + s_bbox_bottom) / 2) ||  // Middle of left edge
         tile_meeting_point(s_bbox_right, (s_bbox_top + s_bbox_bottom) / 2) || // Middle of right edge
         tile_meeting_point((s_bbox_left + s_bbox_right) / 2, s_bbox_top) ||   // Middle of top edge
-        tile_meeting_point((s_bbox_left + s_bbox_right) / 2, s_bbox_bottom);  // Middle of bottom edge
+        tile_meeting_point((s_bbox_left + s_bbox_right) / 2, s_bbox_bottom))  // Middle of bottom edge
+		{
+			return true;
+		}
+		
+		// Add additional checks along the edges for better coverage
+		// Check top edge with more points
+		var steps = 4; // Number of extra checks per edge
+		for (var i = 1; i < steps; i++)
+		{
+			var check_x = lerp(s_bbox_left, s_bbox_right, i/steps);
+			if (tile_meeting_point(check_x, s_bbox_top) || tile_meeting_point(check_x, s_bbox_bottom))
+			{
+				return true;
+			}
+		}
+    
+		// Check side edges with more points
+		for (var i = 1; i < steps; i++)
+		{
+			var check_y = lerp(s_bbox_top, s_bbox_bottom, i/steps);
+			if (tile_meeting_point(s_bbox_left, check_y) || tile_meeting_point(s_bbox_right, check_y)) 
+			{
+            return true;
+			}
+		}
+    
+	return false;
 }
 
 /// Function to check if a point is colliding with obj_wall -> children
@@ -73,9 +99,11 @@ function check_slope_collision()
     // Reset slope status
     on_slope = false;
     slope_object = noone;
+	
+	var check_dist = 16;
     
     // Check for slope objects below the player
-    var slope = instance_place(x, y + 1, oWall);
+    var slope = instance_place(x + check_dist, y + check_dist, oWall);
     
     if (slope != noone) 
 	{
@@ -101,7 +129,6 @@ function handle_slope_movement()
     var slope_x1, slope_y1, slope_x2, slope_y2;
     
     // Determine slope points based on object's angle or type
-    // For this example, we'll assume you've set the slope direction in the object
     switch(slope_object.object_index) 
 	{
         case oSlope_tr: // 45 degrees top right
@@ -142,14 +169,18 @@ function handle_slope_movement()
     var t = (x - slope_x1) / (slope_x2 - slope_x1);
     t = clamp(t, 0, 1); // Ensure t is between 0 and 1
     
-    var target_y = lerp(slope_y1, slope_y2, t) - 1; // -1 to stay slightly above the slope
+    var target_y = lerp(slope_y1, slope_y2, t) - 2; // -2 to stay slightly above the slope
     
     // If player is above the slope line, adjust y position
-    if (bbox_bottom > target_y) {
+    if (bbox_bottom > target_y) 
+	{
         y = target_y - (bbox_bottom - y);
         is_grounded = true;
         vspeed = 0;
     }
+	
+	slope_buffer = 5; //Stay in "slope" state 5 frames longer
+	
 }
 
 // Add this function to handle sliding down slopes when appropriate
@@ -213,4 +244,91 @@ function resolve_stuck()
         return false;
     }
     return true; // Not stuck
+}
+
+// Add this function to implement swept collision detection
+function move_with_collision(h_move, v_move)
+{
+    // If no movement, just return
+    if (h_move == 0 && v_move == 0) return;
+    
+    // Handle horizontal movement with sweep test
+    if (h_move != 0)
+	{
+        // Check for potential collisions along the path
+        var h_sign = sign(h_move);
+        var steps = ceil(abs(h_move));
+        
+        // Break movement into smaller increments
+        var step_size = h_move / steps;
+        
+        for (var i = 0; i < steps; i++)
+		{
+            // Test if next position would cause collision
+            if (!tile_meeting(x + step_size, y))
+			{
+                // Safe to move
+                x += step_size;
+            } else {
+                // Hit a wall, stop horizontal movement
+                hspeed = 0;
+                break;
+            }
+        }
+    }
+    
+    // Handle vertical movement with sweep test
+    if (v_move != 0)
+	{
+        var v_sign = sign(v_move);
+        var steps = ceil(abs(v_move));
+        
+        // Break movement into smaller increments
+        var step_size = v_move / steps;
+        
+        for (var i = 0; i < steps; i++) 
+		{
+            // Test if next position would cause collision
+            if (!tile_meeting(x, y + step_size)) 
+			{
+                // Safe to move
+                y += step_size;
+            } else {
+                // Hit a floor/ceiling, stop vertical movement
+                vspeed = 0;
+                // If we hit ground, update grounded status
+                if (v_sign > 0) 
+				{
+                    is_grounded = true;
+                }
+                break;
+            }
+        }
+    }
+	
+	if (abs(h_move) > move_rate * 0.8) 
+	{ // When we're moving fast
+    // Check ahead for any corners or edges
+    var check_dist = sign(h_move) * (abs(h_move) + 1);
+    
+    // Check if there's a wall at any height of the player's body
+    var player_height = sprite_bbox_bottom - sprite_bbox_top;
+    var edge_check = false;
+    
+    // Check multiple points along the player's height
+    for (var y_offset = 0; y_offset <= player_height; y_offset += 2) 
+	{
+        if (tile_meeting_point(x + check_dist, y + sprite_bbox_top + y_offset)) 
+		{
+            edge_check = true;
+            break;
+        }
+    }
+    
+    // If we'd hit any edge or corner, slow down
+    if (edge_check) 
+	{
+        hspeed *= 0.5; // Cut speed in half as we approach an edge
+    }
+}
 }
