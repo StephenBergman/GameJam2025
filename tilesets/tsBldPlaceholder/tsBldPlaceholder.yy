@@ -1,14 +1,14 @@
 {
   "$GMTileSet":"v1",
-  "%Name":"ts_AccentBasics",
+  "%Name":"tsBldPlaceholder",
   "autoTileSets":[],
   "macroPageTiles":{
     "SerialiseHeight":0,
     "SerialiseWidth":0,
     "TileSerialiseData":[],
   },
-  "name":"ts_AccentBasics",
-  "out_columns":104,
+  "name":"tsBldPlaceholder",
+  "out_columns":28,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_AccentBasicTS",
-    "path":"sprites/spr_AccentBasicTS/spr_AccentBasicTS.yy",
+    "name":"sBldPlaceholder",
+    "path":"sprites/sBldPlaceholder/sBldPlaceholder.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
@@ -34,5 +34,5 @@
   "tileWidth":16,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":10836,
+  "tile_count":768,
 }
