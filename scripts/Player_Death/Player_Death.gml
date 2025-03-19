@@ -4,7 +4,7 @@ function player_die() {
     // Ensure global.game_state exists
     if (!variable_global_exists("game_state")) {
         global.game_state = "alive"; // Default state
-        show_debug_message("WARNING: global.game_state was missing! Resetting to 'alive'.");
+        //show_debug_message("WARNING: global.game_state was missing! Resetting to 'alive'.");
     }
 
     // Prevent multiple activations

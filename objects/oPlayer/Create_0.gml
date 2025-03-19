@@ -10,6 +10,7 @@ state = PLAYERSTATE.FREE;
 hitByAttack = ds_list_create();
 
 // Player Vars
+attack_timer = 0;
 move_rate = 4;
 jump_rate = 5;
 jump_buffer_count = 0;

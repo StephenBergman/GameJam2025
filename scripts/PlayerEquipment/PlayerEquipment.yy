@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"PlayerEquipment",
   "parent":{
-    "name":"Player Structs",
-    "path":"folders/Scripts/Player Structs.yy",
+    "name":"Player Scripts",
+    "path":"folders/Scripts/Player Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
