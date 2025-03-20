@@ -19,17 +19,20 @@ if (pause = true)
 	//}
 
 	
-	if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"))) {
+	if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"))) 
+	{
 		pauseOptionSelected -= 1;
 		if (pauseOptionSelected < 0) pauseOptionSelected = array_length(pauseOption) - 1; //Wrapping from top
 	}
 	
-	if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("D"))) {
+	if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("D")))
+	{
 		pauseOptionSelected += 1;
 		if (pauseOptionSelected >= array_length(pauseOption)) pauseOptionSelected = 0 //wrapping from bottom
 	}
 	
-if (keyboard_check_pressed(vk_enter)) {
-	executeMenuSelection();
-}
+	if (keyboard_check_pressed(vk_enter))
+	{
+		executeMenuSelection();
+	}
 }

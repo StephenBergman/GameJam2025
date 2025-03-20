@@ -60,3 +60,13 @@ slope_buffer = 0;
 //Debug Mode
 player_debug_mode = false;
 
+if (instance_number(oPlayer) > 1)
+{
+    instance_destroy();
+}
+
+if (!variable_global_exists("initial_spawn_x")) //saves initial spawn point
+{
+    global.initial_spawn_x = x;
+    global.initial_spawn_y = y;
+}
