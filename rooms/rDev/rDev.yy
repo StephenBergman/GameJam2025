@@ -32,6 +32,7 @@
           0,-4,-2147483648,-5,0,-5,-2147483648,-4,0,-105,-2147483648,1,3,-7,-2147483648,-3,0,-5,-2147483648,-6,
           0,-18,-2147483648,1,3,-4,-2147483648,1,3,-33,-2147483648,-6,0,-4,-2147483648,-5,0,-8,-2147483648,-5,
           0,-2,-2147483648,-5,0,-76,-2147483648,-70,3,-4,0,-145,3,-11,0,-646,-2147483648,
+        ],"TileDataFormat":1,},"tilesetId":{"name":"ts_TileMask","path":"tilesets/ts_TileMask/ts_TileMask.yy",},"userdefinedDepth":false,"visible":false,"x":0,"y":0,},
     {"$GMRInstanceLayer":"","%Name":"collision_instance","depth":100,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_3C894F80","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3C894F80","objectId":{"name":"oRoomPass","path":"objects/oRoomPass/oRoomPass.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-90.1378,"scaleX":0.5,"scaleY":2.0,"x":1151.9519,"y":748.0576,},
       ],"layers":[],"name":"collision_instance","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
