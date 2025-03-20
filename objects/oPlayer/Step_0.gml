@@ -1,6 +1,6 @@
 
 
-// ======= DIAGNOSTIC CHECKS =======
+ //======= DIAGNOSTIC CHECKS =======
 var is_grounded = tile_meeting(x, y + 1);
 var is_colliding_x = tile_meeting(x + sign(hspeed), y);
 var is_colliding_y = tile_meeting(x, y + sign(vspeed));
@@ -28,7 +28,7 @@ if (player_debug_mode = true)
 }
 
 
-// Prevent starting a frame stuck
+ //Prevent starting a frame stuck
 if (is_inside_tilemap)
 {
     resolve_stuck();
@@ -63,17 +63,30 @@ else
     jump_held = false;
 }
 
+
+if (attack_timer > 0) {
+    attack_timer -= 1;
+}
+
 if (mouse_check_button_pressed(control_attack))
 {
     state = PLAYERSTATE.ATTACK;
+	attack_timer = 10; // Cooldown before another attack can start
 }
 
 	
-switch(state)
+// Handle player states
+switch (state)
 {
-	case PLAYERSTATE.FREE: PlayerState_Free();
-		break;
-		
-	case PLAYERSTATE.ATTACK: PlayerState_Attack();
-		break;
+    case PLAYERSTATE.FREE:
+        PlayerState_Free();
+        break;
+
+    case PLAYERSTATE.ATTACK:
+        if (image_index < image_number - 1) {
+            PlayerState_Attack(); // Continue attack animation
+        } else {
+            state = PLAYERSTATE.FREE; // Return to movement once attack animation is done
+        }
+        break;
 }

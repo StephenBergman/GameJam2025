@@ -6,8 +6,8 @@
   "name":"oEnemy_sm",
   "overriddenProperties":[],
   "parent":{
-    "name":"Enemies",
-    "path":"folders/Objects/Enemies.yy",
+    "name":"oEnemyTypes",
+    "path":"folders/Objects/Enemies/oEnemyTypes.yy",
   },
   "parentObjectId":null,
   "persistent":false,

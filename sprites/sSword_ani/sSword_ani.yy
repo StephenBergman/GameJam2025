@@ -1,7 +1,7 @@
 {
   "$GMSprite":"",
   "%Name":"sSword_ani",
-  "bboxMode":1,
+  "bboxMode":2,
   "bbox_bottom":31,
   "bbox_left":0,
   "bbox_right":31,
