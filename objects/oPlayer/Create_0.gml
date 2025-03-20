@@ -70,3 +70,21 @@ if (!variable_global_exists("initial_spawn_x")) //saves initial spawn point
     global.initial_spawn_x = x;
     global.initial_spawn_y = y;
 }
+
+if (variable_global_exists("spawn_x") && variable_global_exists("spawn_y")) 
+{
+	// Player spawns outside the door they entered instead of the room's default position.
+	if (global.spawn_x != -1 && global.spawn_y != -1) 
+	{
+	    x = global.spawn_x;
+	    y = global.spawn_y;
+	} 
+}
+else 
+{
+	global.spawn_x = -1; 
+	global.spawn_y = -1;
+}
+
+depth = -100; // Adjust as needed to ensure the player is above the map
+

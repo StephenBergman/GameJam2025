@@ -92,6 +92,7 @@
     {"id":{"name":"rDev","path":"rooms/rDev/rDev.yy",},},
     {"id":{"name":"rRoom1","path":"rooms/rRoom1/rRoom1.yy",},},
     {"id":{"name":"rTown","path":"rooms/rTown/rTown.yy",},},
+    {"id":{"name":"rTownRoom1","path":"rooms/rTownRoom1/rTownRoom1.yy",},},
     {"id":{"name":"rTutorial","path":"rooms/rTutorial/rTutorial.yy",},},
     {"id":{"name":"Collision","path":"scripts/Collision/Collision.yy",},},
     {"id":{"name":"EquipItem","path":"scripts/EquipItem/EquipItem.yy",},},
@@ -219,6 +220,7 @@
     {"roomId":{"name":"rTown","path":"rooms/rTown/rTown.yy",},},
     {"roomId":{"name":"rController","path":"rooms/rController/rController.yy",},},
     {"roomId":{"name":"rRoom1","path":"rooms/rRoom1/rRoom1.yy",},},
+    {"roomId":{"name":"rTownRoom1","path":"rooms/rTownRoom1/rTownRoom1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
