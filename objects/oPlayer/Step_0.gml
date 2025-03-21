@@ -41,6 +41,7 @@ if keyboard_check(control_left) || keyboard_check(control_left_alt) { move_input
 if keyboard_check(control_right) || keyboard_check(control_right_alt) { move_input_total += 1; }
 
 Interact_rooms();
+Passthru_rooms();
 
 // Jump input buffer
 if keyboard_check_pressed(control_jump) || keyboard_check_pressed(control_jump_alt)

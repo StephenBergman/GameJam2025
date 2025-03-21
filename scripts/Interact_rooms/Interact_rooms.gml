@@ -17,3 +17,17 @@ function Interact_rooms()
     }
 
 }
+
+function Passthru_rooms()
+{
+	var _door = instance_place(x, y, oRoomPass);
+        
+	if (_door != noone && _door.target_room != noone) 
+	{
+		global.last_room = room;
+		global.spawn_x = _door.exit_x;
+		global.spawn_y = _door.exit_y;
+    
+		room_goto(_door.target_room);
+	}
+}

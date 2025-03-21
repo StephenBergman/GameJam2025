@@ -28,7 +28,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
     "name":"sPlaceholder2",
     "path":"sprites/sPlaceholder2/sPlaceholder2.yy",

@@ -123,8 +123,8 @@
   ],
   "name":"rTown",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"Main Levels",
+    "path":"folders/Rooms/Main Levels.yy",
   },
   "parentRoom":null,
   "physicsSettings":{
