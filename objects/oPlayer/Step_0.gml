@@ -41,7 +41,6 @@ if keyboard_check(control_left) || keyboard_check(control_left_alt) { move_input
 if keyboard_check(control_right) || keyboard_check(control_right_alt) { move_input_total += 1; }
 
 Interact_rooms();
-Passthru_rooms();
 
 // Jump input buffer
 if keyboard_check_pressed(control_jump) || keyboard_check_pressed(control_jump_alt)
@@ -60,7 +59,8 @@ else
 }
 
 
-if (attack_timer > 0) {
+if (attack_timer > 0) 
+{
     attack_timer -= 1;
 }
 
@@ -79,9 +79,11 @@ switch (state)
         break;
 
     case PLAYERSTATE.ATTACK:
-        if (image_index < image_number - 1) {
+        if (image_index < image_number - 1)
+		{
             PlayerState_Attack(); // Continue attack animation
-        } else {
+        } else 
+		{
             state = PLAYERSTATE.FREE; // Return to movement once attack animation is done
         }
         break;

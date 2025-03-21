@@ -10,6 +10,7 @@ state = PLAYERSTATE.FREE;
 hitByAttack = ds_list_create();
 
 // Player Vars
+depth = 0; // Adjust as needed to ensure the player is above the map
 move_rate = 2;
 jump_rate = 4;
 jump_buffer_count = 0;
@@ -26,6 +27,7 @@ gravity_vspeed = 3;
 gravity_rate_base = 0.3;
 gravity_rate_peak = 0.15;
 gravity_rate_fast = 0.5;
+attack_timer = 0;
 
 
 // Controls
@@ -85,6 +87,4 @@ else
 	global.spawn_x = -1; 
 	global.spawn_y = -1;
 }
-
-depth = -100; // Adjust as needed to ensure the player is above the map
 
