@@ -40,12 +40,8 @@ move_input_total = 0;
 if keyboard_check(control_left) || keyboard_check(control_left_alt) { move_input_total -= 1; }
 if keyboard_check(control_right) || keyboard_check(control_right_alt) { move_input_total += 1; }
 
-var interact = keyboard_check(control_interact) || keyboard_check(control_interact_alt)
-if (place_meeting(x, y, oRoomDoor) && interact)
-{
-    room_goto_next();
-}
-
+Interact_rooms();
+Passthru_rooms();
 
 // Jump input buffer
 if keyboard_check_pressed(control_jump) || keyboard_check_pressed(control_jump_alt)

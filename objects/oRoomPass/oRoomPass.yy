@@ -8,8 +8,8 @@
   "name":"oRoomPass",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"RoomSwap",
+    "path":"folders/Objects/RoomSwap.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -28,7 +28,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
     "name":"sPlaceholder2",
     "path":"sprites/sPlaceholder2/sPlaceholder2.yy",

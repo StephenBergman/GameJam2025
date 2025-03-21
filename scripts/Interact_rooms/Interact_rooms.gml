@@ -20,6 +20,7 @@ function Interact_rooms()
 
 function Passthru_rooms()
 {
+	var _door = instance_place(x, y, oRoomPass);
         
 	if (_door != noone && _door.target_room != noone) 
 	{
