@@ -37,3 +37,9 @@ backLayer = layer_get_id("bgLightSky");
 darkFrontLayer = layer_get_id("bg_Dark_Graveyard");
 darkMiddleLayer = layer_get_id("bg_DarkMountain");
 darkBackLayer = layer_get_id("bg_DarkMoon");
+
+//Forest Parallax vars
+forestFrontLayer = layer_get_id("bgForestClose");
+forestMiddleLayer = layer_get_id("bgForestMiddle");
+forestBackLayer = layer_get_id("bgForestBack");
+forestBackLayer2 = layer_get_id("bgForestFar");

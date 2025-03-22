@@ -49,3 +49,11 @@ if (layer_exists(darkFrontLayer))
 	layer_x(darkMiddleLayer, cam_x/1.5);
 	layer_x(darkFrontLayer, cam_x/10);
 }
+
+if (layer_exists(forestBackLayer))
+{
+	layer_x(forestBackLayer2, cam_x/1.2);
+	layer_x(forestBackLayer, cam_x/2);
+	layer_x(forestMiddleLayer, cam_x/4);
+	layer_x(forestFrontLayer, cam_x/10);
+}

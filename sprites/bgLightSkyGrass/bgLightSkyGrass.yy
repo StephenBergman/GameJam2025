@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Backgrounds",
-    "path":"folders/Sprites/Backgrounds.yy",
+    "name":"OpenField",
+    "path":"folders/Sprites/Backgrounds/OpenField.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
