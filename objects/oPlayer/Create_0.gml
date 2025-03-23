@@ -28,6 +28,9 @@ gravity_rate_base = 0.3;
 gravity_rate_peak = 0.15;
 gravity_rate_fast = 0.5;
 attack_timer = 0;
+step_timer = 0; // Controls footstep timing
+step_interval = 16; // Adjust based on desired step frequency
+
 
 
 // Controls

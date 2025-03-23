@@ -12,8 +12,8 @@
   "duration":79.944,
   "name":"sdForest_birds",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Ambient",
+    "path":"folders/Sounds/Ambient.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"sdForest_birds.mp3",
   "type":0,
-  "volume":0.75,
+  "volume":0.05,
 }

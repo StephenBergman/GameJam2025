@@ -12,8 +12,8 @@
   "duration":20.114286,
   "name":"sdWater_droplets",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Ambient",
+    "path":"folders/Sounds/Ambient.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"sdWater_droplets.mp3",
   "type":0,
-  "volume":1.0,
+  "volume":0.1,
 }

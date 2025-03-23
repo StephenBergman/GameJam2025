@@ -38,3 +38,14 @@ if (room == rTutorial_toTown)
 	
 	global.ambient_sound = audio_play_sound(sdWind, 1, true);
 }
+
+// Field Wind ambient
+if (room == rTutorial_toTown)
+{
+	if(audio_is_playing(global.ambient_sound))
+	{
+		audio_stop_sound(global.ambient_sound);
+	}
+	
+	global.ambient_sound = audio_play_sound(sdWind, 1, true);
+}

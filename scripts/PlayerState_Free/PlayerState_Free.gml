@@ -91,6 +91,9 @@ function PlayerState_Free()
 	    vspeed = -jump_rate;
 	    jump_buffer_count = jump_buffer;
 		on_slope = false;
+		
+		//play jump sound
+		audio_play_sound(sdJump, 1, false);
 	
 		//Increment jump count if airborne
 		if(!is_grounded)
@@ -171,7 +174,7 @@ function PlayerState_Free()
 		}
 		else
 		{
-			sprite_index = sWarrior_jump;
+			sprite_index = sWarrior_jump;			
 		}
 	} 
 	else if (vspeed > 0  && !is_grounded) 
@@ -188,6 +191,22 @@ function PlayerState_Free()
 	{ 
 	    sprite_index = sWarrior_idle; 
 	}
+	
+	// Footstep Sound Logic
+	if (abs(hspeed) > 0.1 && is_grounded) // Only play when moving on the ground
+	{
+		step_timer--;
+		if (step_timer <= 0) 
+	{
+        audio_play_sound(sdFootstep, 1, false); // Play footstep sound
+        step_timer = step_interval; // Reset step timer
+    }
+	}
+	else
+	{
+	    step_timer = step_interval; // Reset when stopping
+	}
+
 
 	// ===== END OF SPRITE MOVEMENT HANDLING =====
 

@@ -3,6 +3,9 @@ function PlayerState_Attack()
 	// Set attack animation
     sprite_index = sWarrior_slash1;
 	image_speed = 1; // Ensure animation plays
+	
+	//play slash sound
+	//audio_play_sound(sdSlash, 1, false);
     //if (image_index == 0) show_debug_message("Attack animation started");
 	
 if (PLAYERSTATE.ATTACK)

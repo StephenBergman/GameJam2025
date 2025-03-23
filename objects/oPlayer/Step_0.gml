@@ -67,6 +67,8 @@ if (attack_timer > 0)
 if (mouse_check_button_pressed(control_attack))
 {
     state = PLAYERSTATE.ATTACK;
+		//play slash sound
+	audio_play_sound(sdSlash, 1, false);
 	attack_timer = 10; // Cooldown before another attack can start
 }
 

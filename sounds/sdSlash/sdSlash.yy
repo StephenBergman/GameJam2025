@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"sdWind",
+  "%Name":"sdSlash",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":4.257959,
-  "name":"sdWind",
+  "duration":0.264,
+  "name":"sdSlash",
   "parent":{
-    "name":"Ambient",
-    "path":"folders/Sounds/Ambient.yy",
+    "name":"SFX",
+    "path":"folders/Sounds/SFX.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sdWind.mp3",
+  "soundFile":"sdSlash.mp3",
   "type":0,
-  "volume":0.2,
+  "volume":0.14,
 }
