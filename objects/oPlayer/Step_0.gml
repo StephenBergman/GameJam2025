@@ -64,12 +64,14 @@ if (attack_timer > 0)
     attack_timer -= 1;
 }
 
-if (mouse_check_button_pressed(control_attack))
+if (mouse_check_button_pressed(control_attack) && attack_timer <= 0)
 {
-    state = PLAYERSTATE.ATTACK;
-		//play slash sound
-	audio_play_sound(sdSlash, 1, false);
-	attack_timer = 10; // Cooldown before another attack can start
+    if (combo_step == 0 || combo_timer > 0) // Either starting attack or continuing a combo
+    {
+        state = PLAYERSTATE.ATTACK;
+        audio_play_sound(sdSlash, 1, false);
+        attack_timer = 10; // Cooldown to prevent immediate re-attacks
+    }
 }
 
 	

@@ -30,7 +30,10 @@ gravity_rate_fast = 0.5;
 attack_timer = 0;
 step_timer = 0; // Controls footstep timing
 step_interval = 16; // Adjust based on desired step frequency
-
+combo_step = 0; // Tracks current combo attack (0, 1, 2)
+combo_timer = 0; // Prevents the combo from resetting too fast
+combo_window = 10; // Number of frames allowed to chain next attack
+hitbox_spawned = false;
 
 
 // Controls

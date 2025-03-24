@@ -189,7 +189,7 @@ function PlayerState_Free()
 	} 
 	else if (vspeed == 0 && hspeed == 0)
 	{ 
-	    sprite_index = sWarrior_idle; 
+	    sprite_index = sWarrior_idle_naked; 
 	}
 	
 	// Footstep Sound Logic
