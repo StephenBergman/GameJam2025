@@ -85,8 +85,9 @@ function PlayerState_Free()
 	}
 
 	// Handle jumping
-	if ((jump_buffer_count < jump_buffer && is_grounded) ||
-	(jump_count < jump_max && keyboard_check_pressed(control_jump)))
+	if ((jump_buffer_count < jump_buffer && is_grounded)
+	|| (jump_count < jump_max && (keyboard_check_pressed(control_jump)
+	|| gamepad_button_check_pressed(gamepad_index, control_gp_jump))))
 	{
 	    vspeed = -jump_rate;
 	    jump_buffer_count = jump_buffer;
@@ -189,7 +190,7 @@ function PlayerState_Free()
 	} 
 	else if (vspeed == 0 && hspeed == 0)
 	{ 
-	    sprite_index = sWarrior_idle_naked; 
+	    sprite_index = sWarrior_idle; 
 	}
 	
 	// Footstep Sound Logic

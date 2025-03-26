@@ -1,6 +1,7 @@
 function Interact_rooms()
 {
-    var interact = keyboard_check_pressed(control_interact) || keyboard_check_pressed(control_interact_alt);
+    var interact = keyboard_check_pressed(control_interact)
+	|| keyboard_check_pressed(control_interact_alt) || gamepad_button_check_pressed(gamepad_index, control_gp_interact);
     
     if (interact) 
     {

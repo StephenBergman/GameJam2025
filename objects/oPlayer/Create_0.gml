@@ -43,11 +43,18 @@ control_jump = vk_space;
 control_attack = mb_left;
 control_interact =  ord("E");
 // Alternate Controls
-control_left_alt = vk_left;
+control_left_alt = vk_left
 control_right_alt = vk_right;
 control_jump_alt = vk_up;
 control_interact_alt = vk_enter;
 
+//GamePad controls (Xbox)
+gamepad_index = 0;
+
+control_gp_jump = gp_face1; //A
+							//B
+control_gp_attack = gp_face3 //X
+control_gp_interact = gp_face4; //Y
 
 //Sprite var
 sprite_bbox_left = sprite_get_bbox_left(sprite_index) - sprite_get_xoffset(sprite_index);

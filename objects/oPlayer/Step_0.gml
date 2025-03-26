@@ -40,16 +40,24 @@ move_input_total = 0;
 if keyboard_check(control_left) || keyboard_check(control_left_alt) { move_input_total -= 1; }
 if keyboard_check(control_right) || keyboard_check(control_right_alt) { move_input_total += 1; }
 
-Interact_rooms();
+var gp_move_x = gamepad_axis_value(gamepad_index, gp_axislh); // Left stick horizontal
+if (abs(gp_move_x) > 0.3) 
+{ // Deadzone check
+    move_input_total = sign(gp_move_x);
+}
 
 // Jump input buffer
-if keyboard_check_pressed(control_jump) || keyboard_check_pressed(control_jump_alt)
+if keyboard_check_pressed(control_jump) 
+|| keyboard_check_pressed(control_jump_alt)
+|| gamepad_button_check_pressed(gamepad_index, control_gp_jump)
 {
    jump_buffer_count = 0;
 }
 
 // Track if the jump button is held
-if keyboard_check(control_jump) || keyboard_check(control_jump_alt)
+if keyboard_check(control_jump) 
+|| keyboard_check(control_jump_alt) 
+|| gamepad_button_check(gamepad_index, control_gp_jump)
 {
     jump_held = true;
 }
@@ -64,7 +72,9 @@ if (attack_timer > 0)
     attack_timer -= 1;
 }
 
-if (mouse_check_button_pressed(control_attack) && attack_timer <= 0)
+if ((mouse_check_button_pressed(control_attack) 
+|| gamepad_button_check_pressed(gamepad_index, control_gp_attack))
+&& attack_timer <= 0)
 {
     if (combo_step == 0 || combo_timer > 0) // Either starting attack or continuing a combo
     {
@@ -73,6 +83,8 @@ if (mouse_check_button_pressed(control_attack) && attack_timer <= 0)
         attack_timer = 10; // Cooldown to prevent immediate re-attacks
     }
 }
+
+Interact_rooms();
 
 	
 // Handle player states

@@ -251,6 +251,7 @@
     {"id":{"name":"sWarrior_transform","path":"sprites/sWarrior_transform/sWarrior_transform.yy",},},
     {"id":{"name":"sWarrior_walk","path":"sprites/sWarrior_walk/sWarrior_walk.yy",},},
     {"id":{"name":"sWeapon","path":"sprites/sWeapon/sWeapon.yy",},},
+    {"id":{"name":"sY_button","path":"sprites/sY_button/sY_button.yy",},},
     {"id":{"name":"ts_AccentBasics","path":"tilesets/ts_AccentBasics/ts_AccentBasics.yy",},},
     {"id":{"name":"ts_Castle32","path":"tilesets/ts_Castle32/ts_Castle32.yy",},},
     {"id":{"name":"ts_DarkGround","path":"tilesets/ts_DarkGround/ts_DarkGround.yy",},},
